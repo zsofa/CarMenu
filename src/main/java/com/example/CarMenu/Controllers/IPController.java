@@ -31,6 +31,10 @@ public class IPController {
     @GetMapping("/warning")
     public ResponseEntity<String> getWarning() {
         String sign = ipService.warning();
-        return new ResponseEntity<>(sign, HttpStatus.OK);
+        if (sign.equals(null)) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        } else {
+            return new ResponseEntity<>(sign, HttpStatus.OK);
+        }
     }
 }

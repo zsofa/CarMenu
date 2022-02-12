@@ -9,7 +9,7 @@ public class InformationalPanel {
     private String warning;
     private int consumption;
 
-    public InformationalPanel(String warning, int consumption) {
+    public InformationalPanel() {
         this.warning = "The fuel level is under: ";
         this.consumption = 6;
     }

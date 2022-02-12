@@ -24,6 +24,10 @@ public class SPController {
     @PostMapping("/SportMode_OFF")
     public ResponseEntity<Boolean> turnOffSportMode(@RequestBody boolean isOff) {
         boolean off = spService.turnOffSportMode();
-        return new ResponseEntity<>(off, HttpStatus.ACCEPTED);
+        if (!off) {
+            return new ResponseEntity<>(HttpStatus.ACCEPTED);
+        } else {
+            return new ResponseEntity<>(true, HttpStatus.ACCEPTED);
+        }
     }
 }
