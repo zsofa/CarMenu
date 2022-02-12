@@ -13,7 +13,7 @@ public class SPService {
     private IPService ipService;
     private InformationalPanel IP;
 
-    public boolean turnOnSportMode(boolean isOff) {
+    public boolean turnOnSportMode(boolean isON) {
         if (ipService.getFuelLevel() <= IP.getConsumption()) {
             System.out.println("The sport mode can not be turned on under 6 l/100km consumption!");
             return SP.isOff();
@@ -21,6 +21,12 @@ public class SPService {
             return SP.setOff(false);
         }
     }
+
+    public boolean turnOffSportMode() {
+       return SP.setOff(true);
+    }
+
+
 
 
 }
