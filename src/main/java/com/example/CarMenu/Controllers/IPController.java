@@ -12,25 +12,25 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class IPController {
 
     @Autowired
-    private IPService IPService;
+    private IPService ipService;
 
     @GetMapping("/actual_speed")
     public ResponseEntity<Integer> getActualSpeed(Model model) {
-        Integer speed = IPService.getActualSpeed();
+        Integer speed = ipService.getActualSpeed();
         model.addAttribute("/round_speeds", speed);
         return new ResponseEntity<>(speed, HttpStatus.OK);
     }
 
     @GetMapping("actual_fuel")
     public ResponseEntity<Integer> getActualFuelLevel(Model model) {
-        Integer fuel = IPService.getFuelLevel();
+        Integer fuel = ipService.getFuelLevel();
         model.addAttribute("/fuel_level", fuel);
         return new ResponseEntity<>(fuel, HttpStatus.OK);
     }
 
     @GetMapping("/warning")
     public ResponseEntity<String> getWarning() {
-        String sign = IPService.warning();
+        String sign = ipService.warning();
         return new ResponseEntity<>(sign, HttpStatus.OK);
     }
 }

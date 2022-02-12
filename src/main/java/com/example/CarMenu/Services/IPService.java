@@ -17,7 +17,7 @@ public class IPService {
     @Autowired
     private InformationalPanel IP;
 
-    @Value("${backend.url}")
+    @Value("${simulator.url}")
     private String serverUrl;
 
     public List<Integer> getSpeedsFromRound() {
@@ -35,7 +35,7 @@ public class IPService {
     }
 
     public String warning() {
-        if (getFuelLevel() <= 6) {
+        if (getFuelLevel() <= IP.getConsumption()) {
             return IP.getWarning() + getFuelLevel();
         } else {
             return "You have enough fuel for at least 100 km!";

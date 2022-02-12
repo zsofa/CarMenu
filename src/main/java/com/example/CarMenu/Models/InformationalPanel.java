@@ -7,8 +7,10 @@ import lombok.Getter;
 public class InformationalPanel {
 
     private String warning;
+    private int consumption;
 
-    public InformationalPanel(String warning) {
+    public InformationalPanel(String warning, int consumption) {
         this.warning = "The fuel level is under: ";
+        this.consumption = 6;
     }
 }
